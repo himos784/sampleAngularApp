@@ -35,7 +35,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
     	views: {
     		'': {
     			templateUrl: 'partials/home/home.html',
-    			controller: 'LoginCtrl'
+                controller: 'HomeCtrl'
     		}
     	}
     });
