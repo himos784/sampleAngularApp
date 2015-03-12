@@ -4,25 +4,24 @@
 		<meta charset="UTF-8">
 		<title>Sample</title>
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
-		<script src="js/angular/angular.js"></script>
-		<script src="js/angular/angular-ui-router.js"></script>
-		<script src="app.js"></script>
-		<script src="module/user/UserController.js"></script>
-		<script src="route.js"></script>
 	</head>
 	<body ng-app="spa">
-		<nav class="navbar navbar-inverse" role="navigation">
-		    <div class="navbar-header">
-		        <a class="navbar-brand" ui-sref="#">AngularUI Router</a>
-		    </div>
-		    <ul class="nav navbar-nav">
-		        <li><a ui-sref="/">Landing</a></li>
-		        <li><a ui-sref="home">Home</a></li>
-		    </ul>
-		</nav>
 		<div class="container">
 			<h1 class="text-center">Sample Angular App</h1>
 			<div ui-view></div>
 		</div>
+		<script src="js/angular/angular.js"></script>
+		<script src="js/angular/angular-ui-router.js"></script>
+		
+		<!-- Main App -->
+		<script src="app/app.js"></script>
+		<script src="app/route.js"></script>
+		
+		<!-- Home Feature -->
+		<script src="app/home/controllers/home.js"></script>
+	
+		<!-- User Feature -->
+		<script src="app/user/controllers/login.js"></script>
+		<script src="app/user/controllers/register.js"></script>
 	</body>
 </html>
