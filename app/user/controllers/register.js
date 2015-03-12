@@ -2,8 +2,13 @@ angular
 	.module('spa')
 	.controller('RegisterCtrl',RegisterCtrl);
 
-RegisterCtrl.$inject = ['$scope'];	
+RegisterCtrl.$inject = ['$scope','$state'];	
 
-function RegisterCtrl($scope){
-	$scope.message = "You are here!"
+function RegisterCtrl($scope,$state){
+	$scope.register_data = {};
+	$scope.register = function(){
+		users.push($scope.register_data);
+		user_data = $scope.register_data;
+		$state.go('home');
+	};
 }
