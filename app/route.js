@@ -18,7 +18,7 @@ angular
         		'register@/': { 
         			templateUrl: 'partials/landing/register.html',
         			controller: 'RegisterCtrl' 
-        		},
+        		}
         	}
         })
         .state('home',{
@@ -27,7 +27,19 @@ angular
         		'': {
         			templateUrl: 'partials/home/home.html',
                     controller: 'HomeCtrl'
-        		}
+        		},
+                'users@home': { 
+                    templateUrl: 'partials/home/users-table.html',
+                    controller: 'HomeCtrl' 
+                }
         	}
+        })
+        .state('logout',{
+            url: '/logout',
+            views: {
+                '': { 
+                    templateUrl: 'partials/landing/landing-page.html' 
+                }
+            }
         });
     });

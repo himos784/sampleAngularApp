@@ -1,0 +1,16 @@
+<table class="table">
+	<thead>
+		<tr>
+			<th>Name</th>
+			<th>Email</th>
+			<th>Gender</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr ng-repeat="user in users">
+			<td>{{ user.first_name + ' '+ user.last_name }}</td>
+			<td>{{ user.email }}</td>
+			<td class="text-capitalize">{{ user.gender }}</td>
+		</tr>
+	</tbody>
+</table>
