@@ -1,4 +1,4 @@
-angular.module('spa', ['ui.router','ngResource']);
+angular.module('spa', ['ngRoute','ui.router']);
 
 var users = [
 	{
@@ -22,3 +22,16 @@ var users = [
 var user_data = {};
 
 var api_url = "http://localhost/angular_api/";
+
+/*var serialize = function(obj, prefix) {
+	var str = [];
+	for(var p in obj) {
+		if (obj.hasOwnProperty(p)) {
+		  var k = prefix ? prefix + "[" + p + "]" : p, v = obj[p];
+		  str.push(typeof v == "object" ?
+		    serialize(v, k) :
+		    encodeURIComponent(k) + "=" + encodeURIComponent(v));
+		}
+	}
+	return str.join("&");
+};*/

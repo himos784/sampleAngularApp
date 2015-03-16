@@ -1,8 +1,15 @@
 angular
     .module('spa')
     .config(function($stateProvider, $urlRouterProvider,$httpProvider) {
-        $httpProvider.defaults.useXDomain = true;
-        delete $httpProvider.defaults.headers.common['X-Requested-With'];
+        /*$httpProvider.defaults.transformRequest = function(data){
+            if (data === undefined) {
+                return data;
+            }
+            return serialize(data);
+        };
+
+        // set all post requests content type
+        $httpProvider.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded; charset=UTF-8';*/
         
         $urlRouterProvider.otherwise('/');
         

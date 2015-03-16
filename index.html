@@ -10,13 +10,16 @@
 			<h1 class="text-center">Sample Angular App</h1>
 			<div ui-view></div>
 		</div>
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 		<script src="js/angular/angular.js"></script>
-		<script src="js/angular/angular-resource.min.js"></script>
+		<script src="js/angular/angular-route.js"></script>
 		<script src="js/angular/angular-ui-router.js"></script>
 		
 		<!-- Main App -->
 		<script src="app/app.js"></script>
 		<script src="app/route.js"></script>
+		<!-- Shared Feature -->
+		<script src="app/shared/factory/serializeFormPostData.js"></script>
 		
 		<!-- Home Feature -->
 		<script src="app/home/controllers/HomeCtrl.js"></script>
