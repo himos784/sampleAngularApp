@@ -1,4 +1,4 @@
-angular.module('spa', ['ui.router']);
+angular.module('spa', ['ui.router','ngResource']);
 
 var users = [
 	{
@@ -13,9 +13,9 @@ var users = [
 		first_name : 'Super',
 		last_name : 'Admin',
 		email : 'super-admin@nexseed.net',
-		password : 'super-admin',
+		password : 'superadmin',
 		gender : 'male',
-		position_status : 'admin',
+		position_status : 'super admin',
 	}
 ];
 

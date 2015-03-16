@@ -2,27 +2,9 @@ angular
 	.module('spa')
 	.factory('loginFactory', loginFactory);
 
-RegisterCtrl.$inject = ['$http'];	
+loginFactory.$inject = ['$resource'];
 
-function loginFactory($http){
-	var service = {
-		login : login
-	};
-
-	return service;
-
-	function login(email,password){
-
-		return $http.get(api_url+'login.php')
-            .then(getAvengersComplete)
-            .catch(getAvengersFailed);
-
-        function processLoginSuccess(response) {
-            return response.data.results;
-        }
-
-        function processLoginFailed(error) {
-            logger.error('XHR Failed for getAvengers.' + error.data);
-        }
-	}
+function loginFactory($resource){
+	// console.log(api_url+'login.php');
+	return $resource(api_url+'login.php',{});
 }

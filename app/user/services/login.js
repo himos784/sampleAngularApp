@@ -2,19 +2,18 @@ angular
 	.module('spa')
 	.service('loginService', loginService);
 
-function loginService(){
+loginService.$inject = ['loginFactory'];	
+
+function loginService(loginFactory){
 	var service = {
 		login : login
 	};
 
 	return service;
 
-	function login(email,password){
-		for( x = 0 ; x < users.length ; x++ ){
-			if( ( users[x].email == email ) && ( users[x].password == password ) ){
-				return true;
-			}
-		}
-		return false;
+	function login(data){
+		url = loginFactory;
+		users = url.query();
+		console.log(users);
 	}
 }
