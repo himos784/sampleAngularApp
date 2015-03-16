@@ -33,8 +33,8 @@ function loginFactory($http,serializeFormPostData,data){
         };
 
 		return $http(req)
-            .then(processLoginSuccess)
-            .catch(processLoginFailed);
+            .success(processLoginSuccess)
+            .error(processLoginFailed);
 
         function processLoginSuccess(response) {
             return response;
