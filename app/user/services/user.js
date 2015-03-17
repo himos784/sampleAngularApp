@@ -10,14 +10,13 @@ function userService($state,userFactory){
 	vm.retrieveAllUsers = retrieveAllUsers;
 	vm.retrieveByIdUser = retrieveByIdUser;
 	vm.retrievePaginateUsers = retrievePaginateUsers;
-
-	function retrieveAllUsers(scope_data){
+	
+	function retrieveAllUsers(users){
+		console.log('Before Return!');
+		console.log(users);
 		return userFactory.getAllUsers().then(function(response){
-			// scope_data = response;
-			console.log('Service');
 			users = response.data;
-			console.log(scope_data);
-			return scope_data;
+			return users;
 		});
 	}
 

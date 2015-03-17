@@ -70,3 +70,18 @@ function userFactory($http){
         }
 	}
 }
+
+/*userFactory.$inject = ['$http','$q'];
+function userFactory($http, $q) {
+    return function() {
+        deferred = $q.defer();
+        $http.get(api_url+'users.php')
+            .success(function (data) {
+                deferred.resolve(data);
+            })
+            .error(function (e) {
+                deferred.reject(e);
+            });
+        return deferred.promise;
+    };
+}*/
