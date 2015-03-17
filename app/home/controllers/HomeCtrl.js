@@ -2,11 +2,11 @@ angular
 	.module('spa')
 	.controller('HomeCtrl',HomeCtrl);
 
-HomeCtrl.$inject = ['$scope','userService','userFactory'];
-// HomeCtrl.$inject = ['$scope','userFactory'];
+// HomeCtrl.$inject = ['$scope','userService','userFactory'];
+HomeCtrl.$inject = ['$scope','userFactory'];
 
-// function HomeCtrl($scope,userFactory){
-function HomeCtrl($scope,userService,userFactory){
+function HomeCtrl($scope,userFactory){
+// function HomeCtrl($scope,userService,userFactory){
 	$scope.form_data = user_data;
 	$scope.users = [];
 

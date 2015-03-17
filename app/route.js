@@ -33,6 +33,10 @@ angular
                 }
         	}
         })
+        .state('user',{
+            url: '/user/:id',
+            templateUrl: 'partials/user/user.html' 
+        })
         .state('logout',{
             url: '/logout',
             views: {
