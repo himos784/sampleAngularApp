@@ -2,7 +2,7 @@ angular
 	.module('spa')
 	.controller('HomeCtrl',HomeCtrl);
 
-HomeCtrl.$inject = ['$scope'];
+HomeCtrl.$inject = ['$scope','userService'];
 
 function HomeCtrl($scope){
 	$scope.form_data = user_data;

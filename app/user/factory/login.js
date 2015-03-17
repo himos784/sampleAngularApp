@@ -4,17 +4,8 @@ angular
 
 loginFactory.$inject = ['$http','serializeFormPostData'];
 
-function loginFactory($http,serializeFormPostData,data){
-	// console.log(api_url+'login.php');
-	/*return $resource(api_url+'login.php',{},{
-		login : {
-            method : 'POST',
-            isArray: true,
-            headers : {'Content-Type': 'application/x-www-form-urlencoded'}
-        }
-	});*/
-	// return $http.post(api_url+'login.php',data).success(function(){}).error(function(){});
-	var service = {
+function loginFactory($http,serializeFormPostData){
+    var service = {
 		login : login
 	};
 
@@ -24,7 +15,6 @@ function loginFactory($http,serializeFormPostData,data){
 		var req = {
             url: api_url+'login.php',
             method: 'POST',
-            // data: data,
             headers: {
                 'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
             },
@@ -37,7 +27,7 @@ function loginFactory($http,serializeFormPostData,data){
             .error(processLoginFailed);
 
         function processLoginSuccess(response) {
-            return response;
+            return response.data;
         }
 
         function processLoginFailed(error) {

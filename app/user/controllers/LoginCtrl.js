@@ -2,12 +2,10 @@ angular
 	.module('spa')
 	.controller('LoginCtrl',LoginCtrl);
 
-LoginCtrl.$inject = ['$scope','$state','loginService'];	
-// LoginCtrl.$inject = ['$scope','$state','loginFactory'];	
+LoginCtrl.$inject = ['$scope','loginService'];	
 
-function LoginCtrl($scope,$state,loginService){
+function LoginCtrl($scope,loginService){
 	$scope.login_data = {};
-
 	$scope.login = function(){
 		// var login = loginService.login($scope.login_data);
 		// loginService.login($scope.login_data);
@@ -22,12 +20,7 @@ function LoginCtrl($scope,$state,loginService){
 			alert("Oops!");
 		}*/
 
-		var login = loginService.login($scope.login_data);
-		console.log(login);
-		/*loginService.login($scope.login_data).then(function(data){
-			console.log(data);
-		});*/
-		// var login = new loginService;
+		loginService.login($scope.login_data);
 
 	};
 }
