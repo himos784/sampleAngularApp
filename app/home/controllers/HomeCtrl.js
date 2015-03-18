@@ -11,7 +11,7 @@ function HomeCtrl($scope,userFactory){
 	$scope.users = [];
 
 	userFactory.getAllUsers().then(function(results){
-		$scope.users = results.data;
+		$scope.users = results;
 	});
 
 	// Commented just incase 

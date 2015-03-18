@@ -1,1 +1,11 @@
-I am here!
+<div class="panel panel-primary">
+	<div class="panel-heading">
+		<h3 class="panel-title">User Information</h3>
+	</div>
+	<div class="panel-body">
+		<h1>{{ user.first_name + ' '+ user.last_name }}</h1>
+		<p>Email:&nbsp;{{ user.email }}</p>
+		<p class="text-capitalize">Gender:&nbsp;{{ user.gender }}</p>
+		<p class="text-capitalize">User Level:&nbsp;{{ user.user_level }}</p>
+	</div>
+</div>

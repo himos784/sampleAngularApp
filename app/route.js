@@ -35,7 +35,8 @@ angular
         })
         .state('user',{
             url: '/user/:id',
-            templateUrl: 'partials/user/user.html' 
+            templateUrl: 'partials/user/user.html',
+            controller: 'PreviewUserCtrl'
         })
         .state('logout',{
             url: '/logout',
