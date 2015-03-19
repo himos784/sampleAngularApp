@@ -2,13 +2,20 @@ angular
 	.module('spa')
 	.controller('RegisterCtrl',RegisterCtrl);
 
-RegisterCtrl.$inject = ['$scope','$state'];	
+RegisterCtrl.$inject = ['$scope','$state','userFactory'];	
 
-function RegisterCtrl($scope,$state){
+function RegisterCtrl($scope,$state,userFactory){
 	$scope.register_data = {};
+	$scope.users = [];
 	$scope.register = function(){
-		users.push($scope.register_data);
-		user_data = $scope.register_data;
-		$state.go('home');
+		userFactory.createUser($scope.register_data).then(function(response){
+			if( response.status == 200 ){
+				user_data = $scope.register_data;
+				$state.go('home');
+			}
+			else{
+				alert("Oops!");
+			}
+		});
 	};
 }

@@ -15,9 +15,6 @@ function loginFactory($http,serializeFormPostData){
 		var req = {
             url: api_url+'login.php',
             method: 'POST',
-            /*headers: {
-                'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
-            },*/
             transformRequest: serializeFormPostData,
 			data: data,
         };

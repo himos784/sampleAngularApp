@@ -2,13 +2,16 @@ angular
 	.module('spa')
 	.factory('userFactory', userFactory);
 
-userFactory.$inject = ['$http','$q'];
+userFactory.$inject = ['$http','$q','serializeFormPostData'];
 
-function userFactory($http,$q){
+function userFactory($http,$q,serializeFormPostData){
 	var service = {
 		getAllUsers : getAllUsers,
 		getByIdUser : getByIdUser,
-		getPaginateUsers : getPaginateUsers
+        getPaginateUsers : getPaginateUsers,
+        createUser : createUser,
+        updateUser : updateUser,
+		deleteUser : deleteUser
 	};
 
 	return service;
@@ -38,30 +41,8 @@ function userFactory($http,$q){
 	}
 
 	function getPaginateUsers(page_number){
-		var req = {
-            url: api_url+'users.php?page_number='+pageNumber,
-            method: 'GET'
-        };
-
-		return $http(req)
-            .success(processSuccess)
-            .error(processFailed);
-
-        function processSuccess(response) {
-            return response.data;
-        }
-
-        function processFailed(error) {
-            logger.error('XHR Failed for getAvengers.' + error.data);
-        }
-	}
-}
-
-/*userFactory.$inject = ['$http','$q'];
-function userFactory($http, $q) {
-    return function() {
-        deferred = $q.defer();
-        $http.get(api_url+'users.php')
+		deferred = $q.defer();
+        $http.get(api_url+'users.php?page_number='+pageNumber)
             .success(function (data) {
                 deferred.resolve(data);
             })
@@ -69,5 +50,57 @@ function userFactory($http, $q) {
                 deferred.reject(e);
             });
         return deferred.promise;
-    };
-}*/
+	}
+
+    function createUser(data){
+        var req = {
+            url: api_url+'create_user.php',
+            method: 'POST',
+            transformRequest: serializeFormPostData,
+            data: data,
+        };
+        deferred = $q.defer();
+        $http(req)
+            .success(function (data) {
+                deferred.resolve(data);
+            })
+            .error(function (e) {
+                deferred.reject(e);
+            });
+        return deferred.promise;
+    }
+
+    function updateUser(id,data){
+        var req = {
+            url: api_url+'update_user.php?user_id='+id,
+            method: 'POST',
+            transformRequest: serializeFormPostData,
+            data: data,
+        };
+        deferred = $q.defer();
+        $http(req)
+            .success(function (data) {
+                deferred.resolve(data);
+            })
+            .error(function (e) {
+                deferred.reject(e);
+            });
+        return deferred.promise;
+    }
+
+    function deleteUser(id){
+        var req = {
+            url: api_url+'delete_user.php?user_id='+id,
+            method: 'GET',
+        };
+        deferred = $q.defer();
+        $http(req)
+            .success(function (data) {
+                deferred.resolve(data);
+            })
+            .error(function (e) {
+                deferred.reject(e);
+            });
+        return deferred.promise;
+    }
+}

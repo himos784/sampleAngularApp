@@ -1,5 +1,5 @@
 <h3 class="text-center">Register</h3>
-<form>
+<form ng-submit="register()">
 	<div class="form-group">
 		<label for="first_name">First Name</label>
 		<input type="text" class="form-control" id="first_name" placeholder="First Name" ng-model="register_data.first_name">
@@ -28,6 +28,7 @@
 			<input type="radio" name="gender" id="gender-female" value="female" ng-model="register_data.gender"> Female
 		</label>
 	</div>
-	<a class="btn btn-success" ng-click="register()">Submit</a>
+	<button class="btn btn-success">Submit</button>
+	<!-- <a class="btn btn-success" ng-click="register()">Submit</a> -->
 	<!--<button type="submit" class="btn btn-success">Submit</button>-->
 </form>
