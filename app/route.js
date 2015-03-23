@@ -25,11 +25,11 @@ angular
         	views: {
         		'': {
         			templateUrl: 'partials/home/home.html',
-                    controller: 'HomeCtrl'
+                    controller: 'HomeCtrl',
         		},
                 'users@home': { 
                     templateUrl: 'partials/home/users-table.html',
-                    controller: 'HomeCtrl' 
+                    controller: 'UsersCtrl' 
                 }
         	}
         })

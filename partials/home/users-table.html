@@ -1,3 +1,4 @@
+<alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert($index)">{{alert.msg}}</alert>
 <table class="table">
 	<thead>
 		<tr>
@@ -16,7 +17,6 @@
 				<a class="btn btn-default" ui-sref="view-user({ id: user.id })">
     				<span class="glyphicon glyphicon-fullscreen"></span>
   				</a>
-				<!-- <a class="btn btn-default" ui-sref="delete-user({ id: user.id })"> -->
 				<a class="btn btn-default" ng-click="delete_user(user)">
     				<span class="glyphicon glyphicon-remove"></span>
   				</a>

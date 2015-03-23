@@ -1,4 +1,5 @@
-angular.module('spa', ['ngRoute','ui.router']);
+// angular.module('spa', ['ngRoute','ui.router']);
+angular.module('spa', ['ngRoute','ui.router','ui.bootstrap']);
 
 var users = [
 	{
