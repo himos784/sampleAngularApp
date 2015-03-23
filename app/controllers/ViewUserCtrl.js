@@ -1,12 +1,11 @@
 angular
 	.module('spa')
-	.controller('PreviewUserCtrl',PreviewUserCtrl);
+	.controller('ViewUserCtrl',ViewUserCtrl);
 
-PreviewUserCtrl.$inject = ['$scope','$stateParams','userFactory'];
+ViewUserCtrl.$inject = ['$scope','$stateParams','userFactory'];
 
-function PreviewUserCtrl($scope,$stateParams,userFactory){
+function ViewUserCtrl($scope,$stateParams,userFactory){
 	userFactory.getByIdUser($stateParams.id).then(function(result){
-		console.log(result);
 		$scope.user = result;
 	});
 }

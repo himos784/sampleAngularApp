@@ -33,10 +33,14 @@ angular
                 }
         	}
         })
-        .state('user',{
+        .state('view-user',{
             url: '/user/:id',
             templateUrl: 'partials/user/view.html',
-            controller: 'PreviewUserCtrl'
+            controller: 'ViewUserCtrl'
+        })
+        .state('delete-user',{
+            url: '/user/delete/:id',
+            controller: 'DeleteUserCtrl'
         })
         .state('logout',{
             url: '/logout',

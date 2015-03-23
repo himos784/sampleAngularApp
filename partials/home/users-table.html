@@ -13,8 +13,11 @@
 			<td>{{ user.email }}</td>
 			<td class="text-capitalize">{{ user.gender }}</td>
 			<td>
-				<a class="btn btn-default" ui-sref="user({ id: user.id })">
+				<a class="btn btn-default" ui-sref="view-user({ id: user.id })">
     				<span class="glyphicon glyphicon-fullscreen"></span>
+  				</a>
+				<a class="btn btn-default" ui-sref="delete-user({ id: user.id })">
+    				<span class="glyphicon glyphicon-remove"></span>
   				</a>
   			</td>
 		</tr>
