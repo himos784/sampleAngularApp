@@ -1,12 +1,17 @@
-angular
-	.module('spa')
-	.controller('LogoutCtrl',LogoutCtrl);
+(function() {
+    'use strict';
 
-LogoutCtrl.$inject = ['$scope','$state'];	
+	angular
+		.module('spa')
+		.controller('LogoutCtrl',LogoutCtrl);
 
-function LogoutCtrl($scope,$state){
-	$scope.logout = function(){
-		user_data = {};
-		$state.go('/');
-	};
-}
+	LogoutCtrl.$inject = ['$scope','$state'];	
+
+	function LogoutCtrl($scope,$state){
+		$scope.logout = function(){
+			user_data = {};
+			$state.go('/');
+		};
+	}
+
+})();

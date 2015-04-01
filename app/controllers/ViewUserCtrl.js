@@ -1,11 +1,16 @@
-angular
-	.module('spa')
-	.controller('ViewUserCtrl',ViewUserCtrl);
+(function() {
+    'use strict';
 
-ViewUserCtrl.$inject = ['$scope','$stateParams','userFactory'];
+	angular
+		.module('spa')
+		.controller('ViewUserCtrl',ViewUserCtrl);
 
-function ViewUserCtrl($scope,$stateParams,userFactory){
-	userFactory.getByIdUser($stateParams.id).then(function(result){
-		$scope.user = result;
-	});
-}
+	ViewUserCtrl.$inject = ['$scope','$stateParams','userService'];
+
+	function ViewUserCtrl($scope,$stateParams,userService){
+		userService.getByIdUser($stateParams.id).then(function(result){
+			$scope.user = result;
+		});
+	}
+	
+})();

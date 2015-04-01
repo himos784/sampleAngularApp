@@ -1,20 +1,25 @@
-angular
-	.module('spa')
-	.controller('LoginCtrl',LoginCtrl);
+(function() {
+    'use strict';
 
-LoginCtrl.$inject = ['$scope','$state','loginFactory'];	
+    angular
+		.module('spa')
+		.controller('LoginCtrl',LoginCtrl);
 
-function LoginCtrl($scope,$state,loginFactory){
-	$scope.login_data = {};
-	$scope.login = function(){
-		loginFactory.login($scope.login_data).then(function(response){
-			if( response.data.status == 200 ){
-				user_data = response.data.result;
-				$state.go('home');
-			}
-			else{
-				alert("Oops!");
-			}
-		});
-	};
-}
+	LoginCtrl.$inject = ['$scope','$state','userService'];	
+
+	function LoginCtrl($scope,$state,userService){
+		$scope.login_data = {};
+		$scope.login = function(){
+			userService.login($scope.login_data).then(function(response){
+				if( response.status == 200 ){
+					user_data = response.result;
+					$state.go('home');
+				}
+				else{
+					alert("Oops!");
+				}
+			});
+		};
+	}
+	
+})();

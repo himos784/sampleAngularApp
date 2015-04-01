@@ -1,9 +1,14 @@
-angular
-	.module('spa')
-	.controller('HomeCtrl',HomeCtrl);
+(function() {
+    'use strict';
 
-HomeCtrl.$inject = ['$scope','userFactory'];
+    angular
+		.module('spa')
+		.controller('HomeCtrl',HomeCtrl);
 
-function HomeCtrl($scope,userFactory){
-	$scope.form_data = user_data;
-}
+	HomeCtrl.$inject = ['$scope'];
+
+	function HomeCtrl($scope){
+		$scope.form_data = user_data;
+	}
+
+})();

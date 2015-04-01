@@ -10,9 +10,9 @@
 	</thead>
 	<tbody>
 		<tr ng-repeat="user in users">
-			<td>{{ user.first_name + ' '+ user.last_name }}</td>
-			<td>{{ user.email }}</td>
-			<td class="text-capitalize">{{ user.gender }}</td>
+			<td>{{ ::user.first_name }} &nbsp; {{ ::user.last_name }}</td>
+			<td>{{ ::user.email }}</td>
+			<td class="text-capitalize">{{ ::user.gender }}</td>
 			<td>
 				<a class="btn btn-default" ui-sref="view-user({ id: user.id })">
     				<span class="glyphicon glyphicon-fullscreen"></span>

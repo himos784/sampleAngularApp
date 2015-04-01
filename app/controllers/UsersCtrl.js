@@ -1,34 +1,38 @@
-angular
-	.module('spa')
-	.controller('UsersCtrl',UsersCtrl);
+(function() {
+    'use strict';
 
-UsersCtrl.$inject = ['$scope','userFactory'];
+	angular
+		.module('spa')
+		.controller('UsersCtrl',UsersCtrl);
 
-function UsersCtrl($scope,userFactory){
-	// $scope.form_data = user_data;
+	UsersCtrl.$inject = ['$scope','userService'];
 
- 	$scope.users = [];
-	$scope.alerts = [];
+	function UsersCtrl($scope,userService){
 
-	refreshUsers();
+	 	$scope.users = [];
+		$scope.alerts = [];
 
-	function refreshUsers(){
-		userFactory.getAllUsers().then(function(results){
-			$scope.users = results;
-		});
+		refreshUsers();
+
+		function refreshUsers(){
+			userService.getAllUsers().then(function(results){
+				$scope.users = results;
+			});
+		}
+
+		$scope.closeAlert = function(index) {
+	    	$scope.alerts.splice(index, 1);
+	  	};
+	  	
+		$scope.delete_user = function(user){
+			userService.deleteUser(user.id).then(function(result){
+				if(result.status == 200){ 
+					$scope.alerts.push({type: 'success',msg: 'Successfully deleted!'});
+					$scope.users.splice( $scope.users.indexOf(user), 1 );
+					refreshUsers();
+				}
+			});
+		};
 	}
-
-	$scope.closeAlert = function(index) {
-    	$scope.alerts.splice(index, 1);
-  	};
-  	
-	$scope.delete_user = function(user){
-		userFactory.deleteUser(user.id).then(function(result){
-			if(result.status == 200){ 
-				$scope.alerts.push({type: 'success',msg: 'Successfully deleted!'});
-				$scope.users.splice( $scope.users.indexOf(user), 1 );
-				refreshUsers();
-			}
-		});
-	};
-}
+	
+})();
