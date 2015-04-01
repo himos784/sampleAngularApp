@@ -8,13 +8,14 @@
 	restApiFactory.$inject = ['$http','$q'];
 
 	function restApiFactory($http,$q){
+
 		var services = {
 			connect : connect
 		}
 		return services;
 
 		function connect(config){
-		    deferred = $q.defer();
+		    var deferred = $q.defer();
 		    $http(config)
 		        .success(function (data) {
 		            deferred.resolve(data);
@@ -24,6 +25,7 @@
 		        });
 		    return deferred.promise;
 		}
+		
 	}
 
 })();

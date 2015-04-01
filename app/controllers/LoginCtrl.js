@@ -8,8 +8,11 @@
 	LoginCtrl.$inject = ['$scope','$state','userService'];	
 
 	function LoginCtrl($scope,$state,userService){
+
 		$scope.login_data = {};
-		$scope.login = function(){
+		$scope.login = login;
+
+		function login(){
 			userService.login($scope.login_data).then(function(response){
 				if( response.status == 200 ){
 					user_data = response.result;
@@ -20,6 +23,7 @@
 				}
 			});
 		};
+		
 	}
-	
+
 })();

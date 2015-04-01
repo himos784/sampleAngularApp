@@ -8,18 +8,13 @@
     userService.$inject = ['$http','serializeFormPostData','restApiFactory'];
 
     function userService($http,serializeFormPostData,restApiFactory){
+
         this.getAllUsers = getAllUsers;
-
         this.getByIdUser = getByIdUser;
-
         this.getPaginateUsers = getPaginateUsers;
-
         this.createUser = createUser;
-
         this.updateUser = updateUser;
-
         this.deleteUser = deleteUser;
-
         this.login = login;
 
         ////////////////
@@ -85,6 +80,7 @@
             };
             return restApiFactory.connect(req);
         }
+
     }
-    
+
 })();

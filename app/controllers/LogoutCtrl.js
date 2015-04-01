@@ -8,10 +8,14 @@
 	LogoutCtrl.$inject = ['$scope','$state'];	
 
 	function LogoutCtrl($scope,$state){
-		$scope.logout = function(){
+
+		$scope.logout = logout;
+
+		function logout(){
 			user_data = {};
 			$state.go('/');
 		};
+		
 	}
 
 })();
