@@ -17,8 +17,6 @@ module.exports = function(grunt) {
             },
             merge:{
                 src : [
-                    'app/app.js',
-                    'app/route.js',
                     'app/merge/controllers.js',
                     'app/merge/factories.js',
                     'app/merge/services.js'
